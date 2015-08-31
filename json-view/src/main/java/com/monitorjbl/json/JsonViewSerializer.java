@@ -82,7 +82,9 @@ public class JsonViewSerializer extends JsonSerializer<JsonView> {
         jgen.writeNumber((Byte) obj);
       } else if(obj instanceof Boolean) {
         jgen.writeBoolean((Boolean) obj);
-      } else {
+      }  else if(obj instanceof BigDecimal) {
+    	  jgen.writeString(obj.toString());
+      }else {
         return false;
       }
       return true;
